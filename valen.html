@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valentine Proposal 💖</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .box {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            width: 320px;
+        }
+
+        button {
+            padding: 10px 22px;
+            margin: 10px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .no {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+
+        .shy {
+            margin-top: 15px;
+            font-size: 18px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Hey Shalu ❤️</h2>
+    <h3>Will you be my Valentine? 🌹</h3>
+
+    <button class="yes" onclick="sayYes()">YES 💕</button>
+    <button class="no" onclick="shyNo()" onmouseover="moveNo()">NO 🙈</button>
+    
+    <div id="msg"></div>
+</div>
+
+<script>
+    let shyMessages = [
+        "🙊 This NO is feeling shy",
+        
+    ];
+
+    function sayYes() {
+        document.body.innerHTML = `
+            <h1>💖 Yayyyy! I knew it 😍<br>
+                You just made my day 💖
+            </h1>
+        `;
+    }
+
+    function shyNo() {
+        const msg = document.getElementById("msg");
+        const randomMsg = shyMessages[Math.floor(Math.random() * shyMessages.length)];
+        msg.innerHTML = `<div class="shy">${randomMsg}</div>`;
+    }
+
+    function moveNo() {
+        const btn = document.querySelector('.no');
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 60);
+        btn.style.left = x + "px";
+        btn.style.top = y + "px";
+    }
+</script>
+
+</body>
+</html>
